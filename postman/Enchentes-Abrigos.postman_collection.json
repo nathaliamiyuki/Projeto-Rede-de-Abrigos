@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "f7cb6841-5f53-4f9f-ac9b-2ad0b67065cc",
+    "name": "Enchentes API - Abrigos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Listar Abrigos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/shelters?onlyAvailable=true&city=Porto%20Alegre",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "shelters"],
+          "query": [
+            { "key": "onlyAvailable", "value": "true" },
+            { "key": "city", "value": "Porto Alegre" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Criar Abrigo",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Escola Estadual Central\",\n  \"address\": \"Rua C, 500\",\n  \"neighborhood\": \"Centro\",\n  \"city\": \"Porto Alegre\",\n  \"contactPhone\": \"(51) 99999-2000\",\n  \"capacity\": 90,\n  \"occupied\": 30,\n  \"acceptsPets\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/shelters",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "shelters"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar Ocupacao Abrigo",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"occupied\": 45\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/shelters/1/occupancy",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "shelters", "1", "occupancy"]
+        }
+      }
+    },
+    {
+      "name": "Listar Pedidos de Ajuda",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/requests",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "requests"]
+        }
+      }
+    },
+    {
+      "name": "Criar Pedido de Ajuda",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"requesterName\": \"Maria Silva\",\n  \"phone\": \"(51) 99999-3000\",\n  \"peopleCount\": 4,\n  \"currentLocation\": \"Bairro Sarandi, Rua D\",\n  \"priority\": \"alta\",\n  \"notes\": \"Com duas criancas e um idoso\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/requests",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "requests"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001"
+    }
+  ]
+}

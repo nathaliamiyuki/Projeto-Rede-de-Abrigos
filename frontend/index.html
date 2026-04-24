@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rede de Abrigos - Enchentes</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Rede de Abrigos</h1>
+      <p class="subtitle">Consulta de abrigos e registro de pedidos de ajuda</p>
+
+      <section class="card">
+        <h2>Abrigos Disponiveis</h2>
+        <div class="filters">
+          <input id="cityFilter" type="text" placeholder="Filtrar por cidade" />
+          <label><input id="onlyAvailable" type="checkbox" checked /> Mostrar apenas com vagas</label>
+          <button id="loadShelters">Buscar</button>
+        </div>
+        <div id="sheltersList"></div>
+      </section>
+
+      <section class="card">
+        <h2>Registrar Pedido de Ajuda</h2>
+        <form id="helpForm">
+          <input name="requesterName" placeholder="Nome completo" required />
+          <input name="phone" placeholder="Telefone" />
+          <input name="peopleCount" type="number" min="1" placeholder="Quantidade de pessoas" required />
+          <input name="currentLocation" placeholder="Localizacao atual" required />
+          <select name="priority" required>
+            <option value="">Selecione a prioridade</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baixa">Baixa</option>
+          </select>
+          <textarea name="notes" placeholder="Observacoes (ex.: criancas, idosos, necessidade especial)"></textarea>
+          <button type="submit">Enviar pedido</button>
+        </form>
+        <p id="formFeedback"></p>
+      </section>
+
+      <section class="card">
+        <h2>Acesso de Voluntarios</h2>
+        <div class="filters">
+          <input id="volunteerKey" type="password" placeholder="Chave de acesso do voluntario" />
+          <button id="volunteerLoginBtn">Entrar no painel</button>
+          <button id="volunteerLogoutBtn" type="button">Sair do painel</button>
+        </div>
+        <p id="volunteerFeedback"></p>
+      </section>
+
+      <section class="card hidden" id="volunteerPanel">
+        <h2>Painel de Voluntarios</h2>
+        <div class="filters">
+          <select id="priorityFilter">
+            <option value="">Todas as prioridades</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baixa">Baixa</option>
+          </select>
+          <button id="loadRequests">Atualizar pedidos</button>
+        </div>
+        <div id="requestsList"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
