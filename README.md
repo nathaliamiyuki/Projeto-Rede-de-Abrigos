@@ -94,6 +94,3 @@ Importe a colecao:
 
 `postman/Enchentes-Abrigos.postman_collection.json`
 
-Observacao: para endpoints restritos, envie o header:
-- `x-volunteer-key: <sua_chave>`
-
