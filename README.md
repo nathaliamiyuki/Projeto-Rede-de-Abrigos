@@ -55,7 +55,7 @@ Tabelas principais:
 
 Script SQL de referencia: `backend/scripts/init.sql`
 
-## Configuracao e Execucao
+## Configuração e Execucao
 
 ### 1) Configurar o PostgreSQL
 Crie o banco `enchente_db` e copie `backend/.env.example` para `backend/.env`.
@@ -81,7 +81,7 @@ npm run dev
 API em: `http://localhost:3001`
 
 ### 3) Rodar o front-end
-Opcao recomendada (servidor estatico):
+Opçãoo recomendada (servidor estatico):
 ```bash
 cd frontend
 npx serve .
